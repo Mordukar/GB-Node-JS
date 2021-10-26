@@ -23,10 +23,25 @@ function loop() {
   let min = Number(args[0]);
   let max = Number(args[1]);
 
+  let color  = 'green'
+  let current = 0
+
   for (min; min <= max; min++) {
     if (isPrime(min)) {
-      console.log(colors.green(min));
+      
+      if(current === 0) {
+        console.log(colors.green(min));
+        current = 1
+      } else if (current === 1) {
+        console.log(colors.yellow(min));
+        current = 2
+      } else {
+        console.log(colors.red(min));
+        current = 0
+      }
+
       primeNum = true;
+
     }
   }
 
